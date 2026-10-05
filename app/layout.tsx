@@ -20,7 +20,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#070c18',
+  themeColor: '#F8FAFC',
 };
 
 export default function RootLayout({
@@ -30,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="overflow-x-hidden">
-      <body className="overflow-x-hidden min-h-screen bg-[#070c18] text-slate-100 antialiased">
+      <body className="overflow-x-hidden min-h-screen bg-[#F8FAFC] text-[#0F172A] antialiased">
         {children}
       </body>
     </html>
