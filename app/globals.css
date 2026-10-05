@@ -3,10 +3,16 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
-  --bg-primary: #070c18;
-  --card-bg: rgba(15, 23, 42, 0.85);
-  --card-border: rgba(148, 163, 184, 0.2);
+  color-scheme: light;
+  --bg-main: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --border-subtle: #E2E8F0;
+  --border-hover: #2563EB;
+  --accent-blue: #2563EB;
+  --accent-blue-hover: #1D4ED8;
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
 }
 
 *, *::before, *::after {
@@ -19,8 +25,9 @@ html, body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden !important;
-  background-color: var(--bg-primary);
-  color: #f8fafc;
+  background-color: #F8FAFC !important;
+  background: radial-gradient(1200px 650px at 50% -80px, rgba(37, 99, 235, 0.06) 0%, rgba(248, 250, 252, 0) 75%), #F8FAFC !important;
+  color: #0F172A;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
@@ -33,84 +40,119 @@ html, body {
   word-break: keep-all;
 }
 
-/* Custom modern scrollbar */
+/* Custom modern scrollbar for clean white/slate theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #070c18;
+  background: #F8FAFC;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(59, 130, 246, 0.45);
+  background: #CBD5E1;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(59, 130, 246, 0.75);
+  background: #2563EB;
 }
 
-/* Background grid pattern - Clean background with zero child masking */
-.grid-bg {
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 32px 32px;
+/* Hero Background subtle atmospheric glow */
+.hero-glow-bg {
+  background: radial-gradient(800px 450px at 50% 0%, rgba(37, 99, 235, 0.08) 0%, rgba(248, 250, 252, 0) 80%);
 }
 
-/* High-Contrast Glassmorphism */
-.glass {
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+/* Clean Crisp White Card with subtle border and crisp elevation shadow */
+.app-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 1px 3px 0 rgba(15, 23, 42, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-card {
-  background: linear-gradient(145deg, rgba(30, 41, 59, 0.75) 0%, rgba(15, 23, 42, 0.95) 100%);
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glass-card:hover {
-  border-color: rgba(96, 165, 250, 0.5);
+.app-card:hover {
+  border-color: #2563EB;
   transform: translateY(-2px);
-  box-shadow: 0 20px 45px -10px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 16px 32px -4px rgba(37, 99, 235, 0.12), 0 4px 12px 0 rgba(15, 23, 42, 0.04);
 }
 
-/* Gradient Text */
-.gradient-text {
-  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #38bdf8 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Primary Button: Solid Vibrant Blue #2563EB (Hover: Deep Blue #1D4ED8) */
+.btn-primary-blue {
+  background-color: #2563EB;
+  color: #FFFFFF;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.28);
 }
 
-/* Glow effects */
-.shadow-glow {
-  box-shadow: 0 0 45px -10px rgba(59, 130, 246, 0.3);
+.btn-primary-blue:hover {
+  background-color: #1D4ED8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.38);
 }
 
-.shadow-glow-emerald {
-  box-shadow: 0 0 45px -10px rgba(16, 185, 129, 0.35);
+/* Secondary Button: Clean White + Blue Border #2563EB */
+.btn-secondary-blue {
+  background-color: #FFFFFF;
+  border: 1.5px solid #2563EB;
+  color: #2563EB;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px 0 rgba(37, 99, 235, 0.06);
+}
+
+.btn-secondary-blue:hover {
+  background-color: #EFF6FF;
+  border-color: #1D4ED8;
+  color: #1D4ED8;
+  transform: translateY(-1px);
+}
+
+/* Skill pill on white theme */
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #0F172A;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.skill-pill:hover {
+  border-color: #2563EB;
+  background-color: #EFF6FF;
+  color: #2563EB;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px 0 rgba(37, 99, 235, 0.1);
+}
+
+/* Tech tag for project cards */
+.tag-tech {
+  background-color: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  color: #1E40AF;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.tag-tech:hover {
+  border-color: #2563EB;
+  background-color: #DBEAFE;
+}
+
+/* Text highlight blue */
+.text-blue-word {
+  color: #2563EB;
 }
 
 .section {
   scroll-margin-top: 85px;
-}
-
-/* Badges with punchy contrast */
-.badge-tech {
-  background: rgba(30, 41, 59, 0.85);
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  color: #f1f5f9;
-  transition: all 0.2s ease;
-}
-
-.badge-tech:hover {
-  background: rgba(59, 130, 246, 0.25);
-  border-color: rgba(96, 165, 250, 0.6);
-  color: #ffffff;
-  transform: translateY(-1px);
 }
